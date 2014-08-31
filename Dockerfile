@@ -16,9 +16,6 @@ RUN \
 # Set environment variables.
 ENV PATH /usr/lib/dart/bin:$PATH
 
-# Define mountable directories.
-VOLUME ["/data"]
-
 # Define working directory.
 WORKDIR /data
 
