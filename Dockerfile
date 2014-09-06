@@ -9,9 +9,11 @@ FROM dockerfile/ubuntu
 
 # Install Dart.
 RUN \
-  wget https://storage.googleapis.com/dart-archive/channels/stable/release/39553/linux_packages/debian_wheezy/dart_1.6.0-1_amd64.deb -qO dart.deb && \
-  dpkg -i dart.deb && \
-  rm -f dart.deb
+  mkdir -p /tmp/dart && \
+  cd /tmp/dart && \
+  curl -O http://storage.googleapis.com/dart-archive/channels/stable/release/39553/linux_packages/debian_wheezy/dart_1.6.0-1_amd64.deb && \
+  dpkg -i dart_1.6.0-1_amd64.deb && \
+  rm -fr /tmp/dart
 
 # Set environment variables.
 ENV PATH /usr/lib/dart/bin:$PATH
